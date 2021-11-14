@@ -1,0 +1,25 @@
+{
+    "name":"omegapinho/cores_adianti",
+    "description": "Núcleos de ferramantas para uso com Adianti Framework",
+    "type": "library",
+    "license": "LGPL-2.1-or-later",
+	"authors": [
+        {
+            "email": "o.megapinho@gmail.com",
+            "name": "Fernando de Pinho Araújo",
+            "role": "Lead"
+        }    ],
+    "autoload": {
+        "psr-4": {
+            "Omegapinho\\CoresAdianti\\": "src/"
+        }
+    },
+
+    "support": {
+        "source": "https://github.com/omegapinho/cores_adianti"
+    },
+
+    "require": {
+        "php": ">=7.0"
+    }
+}
