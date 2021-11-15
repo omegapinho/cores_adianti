@@ -1,7 +1,12 @@
 <?php
-/*------------------------------------------------------------------------------
- *    Rotinas relativos a calculo de tempo, datas e feriados
- *------------------------------------------------------------------------------*/
+/**
+ * TTempo - Rotinas relativos a calculo de tempo, datas e feriados
+ * Copyright (c) 
+ * @author  Fernando de Pinho Araújo 
+ * @version 1.0, 2020-11-15
+ **/
+
+//use omegapinho\cores_adianti\scr\TTempo
 
 namespace Omegapinho\CoresAdianti
 
@@ -191,7 +196,7 @@ class TTempo
             $feriados [] = self::dataPascoa($ano);
             $feriados [] = self::dataSextaSanta($ano);
             $feriados [] = self::dataCorpusChristi($ano);
-            try
+            /*try
             {
                 TTransaction::open('sisopm');
                 $results     = feriado::where ('tipo','=','NACIONAL')->load();
@@ -214,14 +219,14 @@ class TTempo
                     }
                 }
                 $this->feriados = $feriados;
-            }
+            }*/
         }
         else
         {
             //Carrega os Feriados
             $feriados = $this->feriados;
         }
-        if ($opm != null)
+        /*if ($opm != null)
             {
             //Verifica se os feriados municipais são os da OPM carregados 
             if($this->OPM_feriado != $opm && $opm != null)
@@ -246,7 +251,7 @@ class TTempo
                 //Carrega Feriados Municiapais da OPM
                 $municipais = $this->feriadosOPM;
             }
-        }
+        }*/
         //Verifica os feriados nacionas com a $data
         foreach ($feriados as $feriado)
         {
@@ -256,7 +261,7 @@ class TTempo
             }
         }
         //Verifica somente se foi pedido OPM também
-        if ($opm != null)
+        /*if ($opm != null)
         {
             foreach ($municipais as $municipal)
             {
@@ -265,7 +270,7 @@ class TTempo
                     $Feriado = true;
                 }
             }
-        }
+        }*/
 		$datas = substr ( $data, 6, 4 ) . "/" . substr ( $data, 3, 2 ) . "/" . substr ( $data, 0, 2 );
 		// para retornar o dia da semana e necessário passar a data no formato americano ano/mes/dia
 		$diaSemana = date ( "w", strtotime ( $datas ) );
@@ -288,7 +293,7 @@ class TTempo
             $feriados [] = $this->dataPascoa($ano);
             $feriados [] = $this->dataSextaSanta($ano);
             $feriados [] = $this->dataCorpusChristi($ano);
-            try//Busca Feriados Nacionais
+            /*try//Busca Feriados Nacionais
             { 
                 TTransaction::open('sisopm');
                 $results = feriado::where ('tipo','=','NACIONAL')->load();
@@ -304,9 +309,9 @@ class TTempo
             catch (Exception $e) 
             { 
                 TTransaction::rollback();
-            }
+            }*/
             //Busca Feriados exclusivos da OPM, se esta for definida
-            if($opm!=null)
+            /*if($opm!=null)
             {
                 try
                 {
@@ -328,7 +333,7 @@ class TTempo
                 { 
                     TTransaction::rollback();
                 }
-            }
+            }*/
             $this->feriados = $feriados;
         }
         return $this->feriados;

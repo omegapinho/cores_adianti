@@ -1,7 +1,11 @@
 <?php
-/*------------------------------------------------------------------------------
- *    Rotinas relativos a filtros especiais
- *------------------------------------------------------------------------------*/
+/**
+ * TFiltrex - Rotinas relativos a filtros especiais
+ * Copyright (c) 
+ * @author  Fernando de Pinho Araújo 
+ * @version 1.0, 2020-11-15
+ * @require Precisa criar rotina sem_acentos no BD Postgres(Ver no final)
+ **/
 namespace Omegapinho\CoresAdianti
 
 class TFiltrex
@@ -33,4 +37,40 @@ class TFiltrex
         $retorno = new TFilter("id", "IN", $sql);
         return $retorno;
     }//Fim Módulo
+/**
+ * Script PGSQL para criação da função sem_acentos
+ * Executar o script dentro do schemma public
+ * url: https://bragil.wordpress.com/2008/02/26/postgresql-funcao-para-remover-acentuacao/
+ **/
+ 
+ /**
+ 
+CREATE OR REPLACE FUNCTION sem_acentos(character varying)
+RETURNS character varying AS
+$BODY$
+SELECT translate($1, 'áéíóúàèìòùãõâêîôôäëïöüçÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛÄËÏÖÜÇ', 'aeiouaeiouaoaeiooaeioucAEIOUAEIOUAOAEIOOAEIOUC')
+$BODY$
+LANGUAGE 'sql' VOLATILE;
+ 
+ **/
+ /**
+ * Script PGSQL para criação da função sem_acentos incluindo consoantes
+ * Executar o script dentro do schemma public
+ * url: https://devtools.com.br/blog/retirando-acentuacao-no-postgresql/
+ **/
+ /**
+ 
+  CREATE OR REPLACE FUNCTION retira_acentuacao(p_texto text)  
+  RETURNS text AS  
+ $BODY$  
+ Select translate($1,  
+ 'áàâãäåaaaÁÂÃÄÅAAAÀéèêëeeeeeEEEÉEEÈìíîïìiiiÌÍÎÏÌIIIóôõöoooòÒÓÔÕÖOOOùúûüuuuuÙÚÛÜUUUUçÇñÑýÝ',  
+ 'aaaaaaaaaAAAAAAAAAeeeeeeeeeEEEEEEEiiiiiiiiIIIIIIIIooooooooOOOOOOOOuuuuuuuuUUUUUUUUcCnNyY'   
+  );  
+ $BODY$  
+ LANGUAGE sql VOLATILE  
+ COST 100; 
+ 
+ **/
+ 
 }//Fim Classe

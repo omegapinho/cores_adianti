@@ -1,13 +1,11 @@
 <?php
-/*
+/**
  * TRelatorioOP - Cria relatório de operações para ser mostrado em mensagens
- * Versão: 1.0
- * Date: 14/04/2017
- * Author: Fernando de Pinho Araújo <o.megapinho@gmail.com>
- * Changelog:
- * - Versão: 1.0 
- */
- 
+ * Copyright (c) 
+ * @author  Fernando de Pinho Araújo 
+ * @version 1.0, 2020-11-15
+ * @require Precisa criar rotina sem_acentos no BD Postgres(Ver no final)
+ **/
 namespace Omegapinho\CoresAdianti
 
 class TRelatorioOP 

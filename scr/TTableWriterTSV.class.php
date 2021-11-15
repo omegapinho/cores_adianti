@@ -1,8 +1,11 @@
 <?php
 /**
- * Write tables in TSV
- * @author Renán Darío Gonzales Apaza
- */
+ * TTableWriterTSV - Write tables in TSV
+ * Copyright (c)
+ * @author Renán Darío Gonzales Apaza - Criador
+ * @author Fernando de Pinho Araújo - Adptador
+ * @version 1.0, 2020-11-15
+ **/ 
 namespace Omegapinho\CoresAdianti
 
 class TTableWriterTSV implements ITableWriter

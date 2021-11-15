@@ -29,7 +29,7 @@ class core_componente extends TFerramentas
             self::$instancia = new self();
         }
         return self::$instancia;
-    }//Fim Módulo
+    }//Fim Método
 /**************************************************************************************************
  ** Componentes do Tipo Botão
  **************************************************************************************************/
@@ -64,7 +64,7 @@ class core_componente extends TFerramentas
         $bnt->title = 'Retorna para Listagem/Mestre.';
         $bnt->name  = 'retorna';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Salvar
  * @param $form   => formulário
@@ -89,7 +89,7 @@ class core_componente extends TFerramentas
         $bnt->title = 'Salva a edição.';
         $bnt->name  = 'salva';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Salvar Static
  * @param $form   => formulário
@@ -114,7 +114,7 @@ class core_componente extends TFerramentas
         $bnt->title = 'Salva a edição.';
         $bnt->name  = 'salva';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Novo
  * @param $form   => formulário
@@ -139,7 +139,7 @@ class core_componente extends TFerramentas
         $bnt->title = 'Cria um novo registro.';
         $bnt->name  = 'novo';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Busca
  * @param $form   => formulário
@@ -163,7 +163,7 @@ class core_componente extends TFerramentas
         }
         $bnt->title = 'Filtra os registro com base no que foi selecionado.';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /** 
  * Cria um botão para fechar janela modal via JS
  * @param $window => object TWindow
@@ -216,7 +216,7 @@ class core_componente extends TFerramentas
         }
         $bnt->title = 'Define quem são os assinates e muda o Status para aguardando assinatura';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Cancela
  * @param $form => formulário
@@ -240,7 +240,7 @@ class core_componente extends TFerramentas
         }
         $bnt->title = 'Cancela o Processo de Assinatura.';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Botão Imprime
  * @param $form => formulário
@@ -264,13 +264,97 @@ class core_componente extends TFerramentas
         }
         $bnt->title = 'Visualiza/Imprime o presente Termo.';
         return $form;
-    }//Fim Módulo
+    }//Fim Método
+/**
+ * Botoneiras para Sis-Saúde. Cuidado ao usar pois são botões pré-definidos
+ * @param $form        => formulário
+ * @param $classe      => classe atual
+ * $param $rotas       => array de array com dados de class e metodo ['novo'     => [], 
+ *																      'retorno'  => [], 
+ *																	  'listagem' => [] , 
+ *																	  'botoes'   => [ ['nome','label','action','imagem','title'] ] ]
+ * @param $botoes      => ativa os botões Novo e Retorno 
+ * @return $form + botão
+ **/
+    public static function btBotoneiraForm($form,
+										   $class,
+										   $rotas  = [],
+										   $botoes = [ 'novo'        => true,
+                                                       'retorno'     => false,
+                                                       'salvar'      => true,
+                                                       'save_static' => false,
+                                                       'listagem'    => true] )
+    {
+        //Ações e suas rotas
+		$dataRetorno   = $rotas['retorno']  ?? [];
+		$dataNovo      = $rotas['novo']     ?? [];
+		$dataLista     = $rotas['listagem'] ?? [];
+		$new_botao     = $rotas['botoes']   ?? false;
+		
+		//Classe e método para retorno da tela anterior de Listagem
+        $classeRetorno = $dataRetorno['classe'] ?? false;
+        $metodoRetorno = $dataRetorno['metodo'] ?? 'onReload';
+		
+		//Classe e método para criação de novo item
+        $classeNovo    = $dataNovo['classe']    ?? $class;
+        $metodoNovo    = $dataNovo['metodo']    ?? 'onEdit';
+        
+		//Classe e método para retorno a tela de listagem principal
+		$classeLista   = $dataLista['classe']   ?? false;
+        $metodoLista   = $dataLista['metodo']   ?? 'onReload';
+		
+        //Configuração
+		$novo          = $botoes['novo']        ?? true;
+        $salvar        = $botoes['salvar']      ?? true;
+        $retorno       = $botoes['retorno']     ?? false;
+        $saveStatic    = $botoes['save_static'] ?? false;
+        $listagem      = $botoes['listagem']    ?? true;
 
-
-
-
-
-
-
-	
+        //Actions Rodapé
+        if($salvar == true)
+        {
+            if ($saveStatic)
+            {
+                $form = self::btSalvaStatic($form,$class,'onSave',false,'btn btn-sm btn-primary');
+            }
+            else
+            {
+                $form = self::btSalva($form,$class,'onSave',false,'btn btn-sm btn-primary');
+            }
+        }
+        if ($novo == true)
+        {
+            $form = self::btNovo($form,$classeNovo,$metodoNovo,false,'',true);
+        }
+        if ($new_botoes)
+        {
+            foreach($new_botoes as $new_botao)
+            {
+                $bnt = $form->addAction($new_botao['label'],$new_botao['action'],$new_botao['imagem']);
+                $bnt->setName($new_botao['nome']);
+                if (isset($new_botao['title']))
+                {
+                    $bnt->title = $new_botao['title'];
+                }
+            }
+        }
+        //Retorna a tela anterior
+        if ($retorno == true && $classeRetorno)
+        {
+            $form = self::btRetorna($form,$classeRetorno,$metodoRetorno,false);
+            //Actions Cabeçalho
+            $form = self::btRetorna($form,$classeRetorno,$metodoRetorno,true);
+        }
+        //Retorno à listagem Principal
+        if($listagem == true && $classeLista)
+        {
+            $form = self::btRetornaEstoque($form,$classeLista,$metodoLista,false,null,true,
+                                           ['mensagem'    => 'Vai para Listagem Principal',
+                                            'label_botao' => 'Listagem']);
+            $form = self::btRetornaEstoque($form,$classeLista,$metodoLista,true,null,true,
+                                           ['mensagem'    => 'Vai para Listagem Principal',
+                                            'label_botao' => 'Listagem']);
+        }
+        return $form;
+    }//Fim Método
 }//Fim Classe

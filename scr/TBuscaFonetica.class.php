@@ -2,14 +2,14 @@
 /**
  * TBuscaFonetica - Ferramentas para implementar a busca fonï¿½tica
  * Copyright (c) 
- * @author  Fernando de Pinho Araï¿½jo 
- * @version 1.0, 2018-06-25
+ * @author  Fernando de Pinho Araújo 
+ * @version 1.0, 2020-11-15
  *   ---------------------------------------------------------------------------
  *   Baseado no Algoritimo de FRED JORGE TAVARES DE LUCENA
  *   http://www.unibratec.com.br/jornadacientifica/diretorio/NOVOB.pdf
  *   E-mail: Fred.lucena@unibratec.com.br
  *   URL: https://pastebin.com/f1819c394 
- */
+ **/
 namespace Omegapinho\CoresAdianti
 
 class TBuscaFonetica

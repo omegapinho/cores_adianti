@@ -1,9 +1,11 @@
 <?php
 /**
- * Write tables in CSV
- * @author Renán Darío Gonzales Apaza
- */
- 
+ * TTableWriterCSV - Write tables in CSV
+ * Copyright (c)
+ * @author Renán Darío Gonzales Apaza - Criador
+ * @author Fernando de Pinho Araújo - Adptador
+ * @version 1.0, 2020-11-15
+ **/ 
 namespace Omegapinho\CoresAdianti
 
 class TTableWriterCSV implements ITableWriter
