@@ -1,4 +1,5 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TTableWriterTSV - Write tables in TSV
  * Copyright (c)
@@ -6,7 +7,6 @@
  * @author Fernando de Pinho Araújo - Adptador
  * @version 1.0, 2020-11-15
  **/ 
-namespace Omegapinho\CoresAdianti
 
 class TTableWriterTSV implements ITableWriter
 {

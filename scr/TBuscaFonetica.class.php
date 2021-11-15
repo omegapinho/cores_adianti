@@ -1,4 +1,5 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TBuscaFonetica - Ferramentas para implementar a busca fonï¿½tica
  * Copyright (c) 
@@ -10,7 +11,6 @@
  *   E-mail: Fred.lucena@unibratec.com.br
  *   URL: https://pastebin.com/f1819c394 
  **/
-namespace Omegapinho\CoresAdianti
 
 class TBuscaFonetica
 {

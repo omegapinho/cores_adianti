@@ -1,11 +1,11 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TLista - Listagens simples
  * Copyright (c) 
  * @author  Fernando de Pinho Araújo 
  * @version 1.0, 2020-11-15
  **/
-namespace Omegapinho\CoresAdianti
 
 class TListas extends TTempo
 {

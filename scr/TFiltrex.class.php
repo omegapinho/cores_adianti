@@ -1,4 +1,5 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TFiltrex - Rotinas relativos a filtros especiais
  * Copyright (c) 
@@ -6,7 +7,6 @@
  * @version 1.0, 2020-11-15
  * @require Precisa criar rotina sem_acentos no BD Postgres(Ver no final)
  **/
-namespace Omegapinho\CoresAdianti
 
 class TFiltrex
 {

@@ -1,4 +1,5 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TTempo - Rotinas relativos a calculo de tempo, datas e feriados
  * Copyright (c) 
@@ -6,9 +7,7 @@
  * @version 1.0, 2020-11-15
  **/
 
-//use omegapinho\cores_adianti\scr\TTempo
-
-namespace Omegapinho\CoresAdianti
+//use omegapinho\coresadianti\scr\TTempo
 
 class TTempo
 {

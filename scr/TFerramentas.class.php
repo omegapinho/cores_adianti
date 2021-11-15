@@ -1,11 +1,11 @@
 <?php
+namespace Omegapinho\CoresAdianti;
 /**
  * TFerramentas - Ferramentas (funções) diversas de uso geral
  * Copyright (c) 
  * @author  Fernando de Pinho Araújo 
  * @version 1.0, 2016-01-22
  */
-namespace Omegapinho\CoresAdianti
 
 class TFerramentas extends TListas
 {

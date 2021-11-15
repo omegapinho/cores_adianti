@@ -1,11 +1,11 @@
 <?php
-/**
+
+namespace Omegapinho\CoresAdianti;/**
  * core_componente - Gerencia a impressão de termos
  * @author  Fernando de Pinho Araújo
  * @package Core
  * @version 1.0 2021-10-19
  */
-namespace Omegapinho\CoresAdianti 
 
 class core_componente extends TFerramentas
 {
