@@ -8,11 +8,11 @@
         {
             "email": "o.megapinho@gmail.com",
             "name": "Fernando de Pinho Araújo",
-            "role": "Lead"
+            "role": "Creator"
         }    ],
     "autoload": {
         "psr-4": {
-            "Omegapinho\\CoresAdianti\\": "src/"
+            "Omegapinho\\CoresAdianti\\": ["src/"]
         }
     },
 
@@ -21,6 +21,7 @@
     },
 
     "require": {
-        "php": ">=5.4"
-    }
+        "php": ">5.4"
+    },
+	"minimum-stability":"dev"
 }
