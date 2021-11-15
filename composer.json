@@ -1,7 +1,8 @@
 {
     "name":"omegapinho/cores_adianti",
-    "description": "Núcleos de ferramantas para uso com Adianti Framework",
+    "description": "Núcleos de ferramentas para uso com Adianti Framework",
     "type": "library",
+	"version":"1.0",
     "license": "LGPL-2.1-or-later",
 	"authors": [
         {
