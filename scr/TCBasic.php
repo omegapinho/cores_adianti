@@ -219,4 +219,23 @@ class TCBasic extends core_componente
         $componente = self::defineBasico($componente,$tam,$default,'combo');
         return $componente;
     }//Fim Método
+/**
+ * Componente Tipo: Destaca Labels
+ * @param  $label => texto a destacar
+ * @param  $color => cor do texto
+ * @param  $style => estilo 
+ * @return Componente
+ **/
+    public static function cDestaque($label, 
+									 $color = 'red', 
+									 $style = null )
+    {
+        $componente = new TLabel($label);
+        $componente->setFontColor($color);
+        if (!empty($style))
+        {
+            $componente->setFontStyle($style);
+        }
+        return $componente;
+    }//Fim Método
 }//Fim Classe
