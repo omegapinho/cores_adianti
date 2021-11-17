@@ -67,9 +67,9 @@ class TCBasic extends core_componente
     }//Fim Módulo
 /**
  * Componente Tipo: Data
- * @param  $nome => objeto a ser marcado
- * @param  $tam  => tamanho do objeto
- * @param  $default true/false (se true define o valor padrão a data de hoje)
+ * @param  $nome    => objeto a ser marcado
+ * @param  $tam     => tamanho do objeto
+ * @param  $default => true/false (se true define o valor padrão a data de hoje)
  * @return Componente
  * @observation Se usado em campo de listagem, certificar refornatar no onSearch para date2us
  **/
