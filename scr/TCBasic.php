@@ -1,6 +1,6 @@
 <?php
-
-namespace Omegapinho\CoresAdianti;/**
+namespace Omegapinho\CoresAdianti;
+/**
  * TCBasic - Componentes do tipo básico
  * @author  Fernando de Pinho Araújo
  * @package Core
@@ -29,7 +29,7 @@ class TCBasic extends core_componente
             self::$instancia = new self();
         }
         return self::$instancia;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: id
  * @param  $nome    => objeto a ser marcado
@@ -45,7 +45,7 @@ class TCBasic extends core_componente
         $componente = self::defineBasico($componente,$tam,$default,'numero');
         $componente->setMask('99999999999999999');
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: numero
  * @param  $nome    => objeto a ser marcado
@@ -64,7 +64,7 @@ class TCBasic extends core_componente
         //$componente->setMask($mask,true);
         $componente->onKeyUp = self::defineMascaraMonetaria('','');
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Data
  * @param  $nome    => objeto a ser marcado
@@ -91,7 +91,7 @@ class TCBasic extends core_componente
         $componente->setDatabaseMask('yyyy-mm-dd');
         
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Data Time
  * @param  $nome => objeto a ser marcado
@@ -118,7 +118,7 @@ class TCBasic extends core_componente
         $componente->setDatabaseMask('yyyy-mm-dd hh:ii');
         
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Entrada de Text
  * @param  $nome    => objeto a ser marcado
@@ -136,7 +136,7 @@ class TCBasic extends core_componente
         $componente = self::defineBasico($componente,0,$default,'combo');
         $componente->setSize($tam_h,$tam_v);
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Entrada de string
  * @param  $nome    => objeto a ser marcado
@@ -151,7 +151,7 @@ class TCBasic extends core_componente
         $componente = new TEntry($nome);
         $componente = self::defineBasico($componente,$tam,$default,'combo');
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Entrada de HTML
  * @param  $nome    => objeto a ser marcado
@@ -172,7 +172,7 @@ class TCBasic extends core_componente
         $componente->setSize($tam_h,$tam_v);
         $componente->setOption('toolbar', TListas::html_editor($tipo) );
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: Entrada de string oculto
  * @param  $nome    => objeto a ser marcado
@@ -187,10 +187,12 @@ class TCBasic extends core_componente
         $componente = new THidden($nome);
         $componente->setValue($default);
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
 /**
  * Componente Tipo: numero decimal
- * @param  $nome => objeto a ser marcado
+ * @param  $nome    => objeto a ser marcado
+ * @param  $tam     => tamanho
+ * @param  $default => valor padrão
  * @return Componente
  **/
     public static function cNumeroDecimal($nome    = 'numero',
@@ -201,5 +203,20 @@ class TCBasic extends core_componente
         $componente          = self::defineBasico($componente,$tam,$default,'numero');
         $componente->onKeyUp = self::defineMascaraMonetaria();
         return $componente;
-    }//Fim Módulo
+    }//Fim Método
+/**
+ * Componente Tipo: Entrada de string para Password
+ * @param  $nome    => objeto a ser marcado
+ * @param  $tam     => tamanho
+ * @param  $default => valor padrão
+ * @return Componente
+ **/
+    public static function cPassword($nome    = 'password',
+									 $tam     = '100%',
+									 $default = false)
+    {
+        $componente = new TPassword($nome);
+        $componente = self::defineBasico($componente,$tam,$default,'combo');
+        return $componente;
+    }//Fim Método
 }//Fim Classe
