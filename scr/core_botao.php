@@ -1,14 +1,14 @@
 <?php
 namespace Omegapinho\CoresAdianti;
 /**
- * core_componente - Gerencia a impressão de termos
+ * core_botao - Core de Componentes do tipo Botão
  * @author  Fernando de Pinho Araújo
  * @package Core
  * @version 1.0 2021-10-19
  */
 
 
-class core_componente extends TFerramentas
+class core_botao extends TFerramentas
 {
     //Armazena a instância
     protected static $instancia;

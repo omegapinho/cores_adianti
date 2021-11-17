@@ -1,7 +1,7 @@
 <?php
-
-namespace Omegapinho\CoresAdianti;/**
- * core_componente - Gerencia a impressão de termos
+namespace Omegapinho\CoresAdianti;
+/**
+ * core_componente - Core de componentes geral
  * @author  Fernando de Pinho Araújo
  * @package Core
  * @version 1.0 2021-10-19
