@@ -310,7 +310,7 @@ class core_componente extends TFerramentas
         {
             $componente->setValue($default);
         }
-        $componente->style = TListas::stylo($style);
+        $componente->style = self::getLista('style',$style);
         return $componente;
     }//Fim Método
 /**

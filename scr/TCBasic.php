@@ -6,6 +6,14 @@ namespace Omegapinho\CoresAdianti;
  * @package Core
  * @version 1.0 2021-10-19
  */
+use Adianti\Widget\Form\TEntry;
+use Adianti\Widget\Form\TDate;
+use Adianti\Widget\Form\TDateTime;
+use Adianti\Widget\Form\TLabel;
+use Adianti\Widget\Form\TPassword;
+use Adianti\Widget\Form\TText;
+use Adianti\Widget\Form\THtmlEditor;
+use Adianti\Widget\Form\THidden;
 
 class TCBasic extends core_componente
 {

@@ -73,7 +73,9 @@ class TListas extends TTempo
 										'AB' => 'AB'],
 					'tipo_rh' => [  'P' => 'POSITIVO', 
 									'N' => 'NEGATIVO',
-									'I' => 'INDEFINIDO']
+									'I' => 'INDEFINIDO'],
+					'style'   => [ 'combo'  => 'padding-top: 0px;margin-top: 1px;margin-bottom: 1px;text-align: left;',
+                                   'numero' => 'padding-top: 0px;margin-top: 1px;margin-bottom: 1px;text-align: right;']
 					
 				 ];
 		if (array_key_exists($param,$items))

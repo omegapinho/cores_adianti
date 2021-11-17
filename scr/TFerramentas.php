@@ -2160,7 +2160,7 @@ $csvdata = csv_in_array( $yourcsvfile, ";", "\"", true );
         if ($nivel >= 90)
         {
             $oculto          = new TCombo($nome);
-            $oculto->style   = TListas::stylo('combo');
+            $oculto->style   = self::getLista('style','combo');
             $label           = 'Em Desuso/Apagado?';
             $oculto->setSize('10%');
             $oculto->addItems(TListas::sim_nao());
